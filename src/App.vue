@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="border: #efefef solid 1px; height: calc(100vh - 100px);width: 100%;">
-      <RelationGraph ref="relationGraph$" :options="options" :on-node-click="onNodeClick">
+      <RelationGraph ref="relationGraph$" :options="options" :on-node-click="onNodeClick" >
         <template #node="{node}">
           <div style="padding-top:20px;">节点：{{node.text}}</div>
         </template>
@@ -19,7 +19,20 @@ const options = {
   // defaultLineShape: 4,
   debug: true,
   showDebugPanel: true,
+  useAnimationWhenRefresh: true,
+  disableNodeClickEffect: true,
+  moveToCenterWhenRefresh: true,
+  zoomToFitWhenRefresh: true,
+  defaultFocusRootNode: true,
+  placeSingleNode: true,
+  isMoveByParentNode: true,
+  graphOffset_y: 100,
+  graphOffset_x: 100,
+ 
+  
+  
 }
+
 const onNodeClick = (node:RGNode, e: RGUserEvent) => {
   console.log('onNodeClick:', node.id);
   return true;
